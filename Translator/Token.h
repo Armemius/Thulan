@@ -13,7 +13,8 @@ namespace Translator {
 			STRING,
 			KEYWORD,
 			OPERATION,
-			GRAMMAR
+			GRAMMAR,
+			ENDLINE
 		};
 
 		std::string Type2string(Types type) {
@@ -45,6 +46,9 @@ namespace Translator {
 				break;
 			case GRAMMAR:
 				return "Grammar";
+				break;
+			case ENDLINE:
+				return "Endline";
 				break;
 			default:
 				return "NULL";

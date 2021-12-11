@@ -44,10 +44,20 @@ namespace Translator {
 				"чЄтк..",
 				"оч",
 				"широк..",
-				"блатн.."
+				"блатн..",
+				"лапша",
+				"прогнать",
+				"до",
+				"шаг",
+				"пока",
+				"юмать",
+				"по€снить",
+				"за",
+				"и",
+				"гоп",
 			};
 			auto operations = std::vector<std::string>{
-				"==",
+				"внатуре",	// '=='
 				"<=",
 				">=",
 				"++",
@@ -76,6 +86,7 @@ namespace Translator {
 				{KEYWORD, Join(keywords)},
 				{OPERATION, SJoin(operations)},
 				{GRAMMAR, SJoin(grammar)},
+				{ENDLINE, R"(\n|\n\r)"},
 				{ID, R"([_a-zA-Zа-€ј-я][_a-zA-Zа-€ј-я0-9]*)"}
 			};
 
