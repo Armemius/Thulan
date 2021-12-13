@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include <iostream>
 #include <regex>
@@ -41,23 +41,31 @@ namespace Translator {
 				return joined;
 			};
 			auto keywords = std::vector<std::string>{
-				"чётк..",
-				"оч",
-				"широк..",
-				"блатн..",
-				"лапша",
-				"прогнать",
-				"до",
-				"шаг",
-				"пока",
-				"юмать",
-				"пояснить",
-				"за",
-				"и",
-				"гоп",
+				"С‡С‘С‚Рє..",		// const
+				"РѕС‡",			// array dimension
+				"С€РёСЂРѕРє..",		// array
+				"Р±Р»Р°С‚РЅ..",		// unsigned
+				"Р»Р°РїС€Р°",		// func
+				"РїСЂРѕРіРЅР°С‚СЊ",		// for
+				"РґРѕ",			// for
+				"С€Р°Рі",			// for
+				"РїРѕРєР°",			// while
+				"СЋРјР°С‚СЊ",		// do
+				"РїРѕСЏСЃРЅРёС‚СЊ",		// output
+				"Р·Р°",			// output
+				"Рё",			// output
+				"РіРѕРї",			// input
+				"Р°С‚Р°СЃ",			// break
+				"СЃР°С‡РєРѕРІР°С‚СЊ",	// continue
+				"Р»РёРїР°",			// null
+				"СЃС‚СЂРµР»Р°",		// if
+				"Р·Р°Р±РёС‚СЊ",		// then
+				"С…Р°РїРЅСѓС‚СЊ",		// new
+				"РІР°Р»СЊРЅСѓС‚СЊ",		// delete
+				"РјР°Р»РёРЅР°"		// struct
 			};
 			auto operations = std::vector<std::string>{
-				"внатуре",	// '=='
+				"РІРЅР°С‚СѓСЂРµ",	// '=='
 				"<=",
 				">=",
 				"++",
@@ -80,14 +88,15 @@ namespace Translator {
 			auto expr = std::vector<std::pair<Types, std::string>>{
 				{VALUE, R"(\d+\.\d*|\d+)"},
 				{BRACKETS, R"(\(|\))"},
-				{BLOCK, R"(Хы|Жых)"},
+				{BLOCK, R"(РҐС‹|Р–Рµ)"},
 				{COMMENT, R"(\/\/.*|\/\*[\s\S]*?\*\/)"},
+				{SPACE, R"([\ \t]+)"},
 				{STRING, R"(\'(\\.|[^'\\])*\'|\"(\\.|[^"\\])*\")"},
 				{KEYWORD, Join(keywords)},
 				{OPERATION, SJoin(operations)},
 				{GRAMMAR, SJoin(grammar)},
 				{ENDLINE, R"(\n|\n\r)"},
-				{ID, R"([_a-zA-Zа-яА-Я][_a-zA-Zа-яА-Я0-9]*)"}
+				{ID, R"([_a-zA-ZР°-СЏРђ-РЇ][_a-zA-ZР°-СЏРђ-РЇ0-9]*)"}
 			};
 
 			std::string joined = "";

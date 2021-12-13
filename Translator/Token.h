@@ -14,7 +14,8 @@ namespace Translator {
 			KEYWORD,
 			OPERATION,
 			GRAMMAR,
-			ENDLINE
+			ENDLINE,
+			SPACE
 		};
 
 		std::string Type2string(Types type) {
@@ -24,7 +25,7 @@ namespace Translator {
 				return "Value";
 				break;
 			case ID:
-				return "Name";
+				return "Id";
 				break;
 			case BRACKETS:
 				return "Brackets";
@@ -49,6 +50,9 @@ namespace Translator {
 				break;
 			case ENDLINE:
 				return "Endline";
+				break;
+			case SPACE:
+				return "Space";
 				break;
 			default:
 				return "NULL";
