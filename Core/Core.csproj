@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Auxiliary\Auxiliary.fsproj" />
     <ProjectReference Include="..\Translator\Translator.vcxproj" />
   </ItemGroup>
 

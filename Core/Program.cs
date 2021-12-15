@@ -8,7 +8,7 @@ namespace Thulan
         {
             try
             {
-                Translator.Program.main();
+                Translator.Program.parseFile(@"C:\My Files\Sus\Thulan\Translator\Source.txt");
             }
             catch (Exception ex)
             {

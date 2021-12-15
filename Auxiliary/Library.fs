@@ -2,5 +2,6 @@
 
 module Syntactic =
 
-    let hello name =
-        printfn "Hello %s" name
+    let public check (tokens : (int * string) list) : bool =
+        
+        (false)
