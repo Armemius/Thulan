@@ -12,6 +12,7 @@ namespace Translator {
 			COMMENT,
 			STRING,
 			KEYWORD,
+			TYPE,
 			OPERATION,
 			GRAMMAR,
 			ENDLINE,
@@ -54,8 +55,11 @@ namespace Translator {
 			case SPACE:
 				return "Space";
 				break;
+			case TYPE:
+				return "Type";
+				break;
 			default:
-				return "NULL";
+				return "Not defined";
 				break;
 			}
 		}

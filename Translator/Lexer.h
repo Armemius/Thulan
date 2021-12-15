@@ -40,11 +40,13 @@ namespace Translator {
 				}
 				return joined;
 			};
-			auto keywords = std::vector<std::string>{
+			auto keywords = std::vector<std::string> {
 				"чётк..",		// const
 				"оч",			// array dimension
 				"широк..",		// array
 				"блатн..",		// unsigned
+				"посыльн..",	// pointer
+
 				"лапша",		// func
 				"прогнать",		// for
 				"до",			// for
@@ -60,20 +62,35 @@ namespace Translator {
 				"липа",			// null
 				"стрела",		// if
 				"забить",		// then
+				"жиган",		// true
+				"фраер",		// false
+				"забить",		// then
 				"хапнуть",		// new
 				"вальнуть",		// delete
 				"малина"		// struct
+			};
+			auto systemTypes = std::vector<std::string>{
+				"погоняло",		// string
+				"шифер",		// int
+				"колонна",		// long
+				"плавник",		// float
+				"двойник",		// double
+				"гудрон",		// char
+				"чубрик",		// bool
 			};
 			auto operations = std::vector<std::string>{
 				"внатуре",	// '=='
 				"<=",
 				">=",
+				"поболее",	// >
+				"поменее",	// <
 				"++",
 				"--",
-				"<<",
-				">>",
-				"=",
-				"-",
+				"полевее",	// <<
+				"поправее",	// >>
+				"по масти", // init
+				"припрячь", // set
+				"-",		//
 				"/",
 				"*",
 				"%",
@@ -90,11 +107,12 @@ namespace Translator {
 				{BRACKETS, R"(\(|\))"},
 				{BLOCK, R"(Хы|Же)"},
 				{COMMENT, R"(\/\/.*|\/\*[\s\S]*?\*\/)"},
-				{SPACE, R"([\ \t]+)"},
 				{STRING, R"(\'(\\.|[^'\\])*\'|\"(\\.|[^"\\])*\")"},
 				{KEYWORD, Join(keywords)},
+				{TYPE, Join(systemTypes)},
 				{OPERATION, SJoin(operations)},
 				{GRAMMAR, SJoin(grammar)},
+				{SPACE, R"([\ \t]+)"},
 				{ENDLINE, R"(\n|\n\r)"},
 				{ID, R"([_a-zA-Zа-яА-Я][_a-zA-Zа-яА-Я0-9]*)"}
 			};
@@ -122,7 +140,8 @@ namespace Translator {
 				}
 				tokens.push_back(Token{ (Types)index, match.str() });
 			}
-
+			if (std::regex_replace(doc, joinedRegex, "").size() > 0)
+				throw std::exception("Sussy balls");
 			return tokens;
 		}
 
