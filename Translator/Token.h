@@ -66,7 +66,7 @@ namespace Translator {
 
 		public struct Token {
 			Types type;
-			const std::string value;
+			std::string value;
 		};
 	}
 }

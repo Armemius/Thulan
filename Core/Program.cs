@@ -8,7 +8,8 @@ namespace Thulan
         {
             try
             {
-                Translator.Program.parseFile(@"C:\My Files\Sus\Thulan\Translator\Source.txt");
+                var tokens = Translator.Lexic.parseFile(@"C:\My Files\Sus\Thulan\Translator\Source.txt");
+                Auxiliary.Syntactic.check(tokens);
             }
             catch (Exception ex)
             {
